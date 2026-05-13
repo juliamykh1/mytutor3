@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathWithYuliia — Репетитор математики</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Math<span>WithYuliia</span></div>
+    <ul class="nav-links">
+        <li><a href="#home">Головна</a></li>
+        <li><a href="#services">Послуги</a></li>
+        <li><a href="#courses">Курси (ЛР4)</a></li>
+        <li><a href="#registration">Запис (ЛР3/5)</a></li>
+        <li><a href="#admin-panel">Заявки</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+    </ul>
+</nav>
+
+<section id="home" class="hero-section">
+    <div class="container hero-container">
+        <div class="hero-text">
+            <h1>Репетитор математики</h1>
+            <p>Математика — це просто, якщо знайти правильний підхід. Допомагаю учням не просто зазубрювати формули, а розуміти логіку предмета.</p>
+            
+            <div class="benefits">
+                <h3>Чому обирають мене:</h3>
+                <ul>
+                    <li>✅ Індивідуальні програми (НМТ, ДПА)</li>
+                    <li>✅ Чіткий та доступний виклад складних тем</li>
+                    <li>✅ Розвиток математичного мислення</li>
+                    <li>✅ Практичний розбір тестів минулих років</li>
+                </ul>
+            </div>
+            
+            <a href="#registration" class="btn-main">Записатися на урок</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=600" alt="Математика">
+        </div>
+    </div>
+</section>
+
+<section id="services" class="page">
+    <div class="container">
+        <h2>Мої Послуги</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Підготовка до НМТ</h3>
+                <p>Інтенсивний розбір тем та робота з тестами.</p>
+            </div>
+            <div class="card">
+                <h3>Шкільна програма</h3>
+                <p>Допомога учням 5-11 класів із алгеброю та геометрією.</p>
+            </div>
+            <div class="card">
+                <h3>Допомога з ДПА</h3>
+                <p>Якісна підготовка до випускних іспитів у 9 класі.</p>
+            </div>
+        </div>
+
+        <div class="dom-practice" style="margin-top: 40px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h2>Програма занять (DOM)</h2>
+            
+            <div class="input-group" style="margin-bottom: 20px;">
+                <input type="text" id="topicInput" placeholder="Введіть нову тему...">
+                <button id="addBtn">Додати тему</button>
+            </div>
+            
+            <ul id="topicList">
+                <li>Основи алгебри <button class="delete-btn">Видалити</button></li>
+                <li>Тригонометрія <button class="delete-btn">Видалити</button></li>
+            </ul>
+
+            <div class="accordion-section" style="margin-top: 30px;">
+                <button class="accordion-btn" onclick="toggleAccordion()" style="width: 100%; padding: 15px; background: #2c3e50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1rem; transition: 0.3s;">
+                    Детальніше про методику навчання ▼
+                </button>
+                <div id="accordion-content" style="display: none; padding: 20px; background: #f4f7f6; border-left: 5px solid #2c3e50; margin-top: 5px; border-radius: 0 0 5px 5px;">
+                    <p>Я використовую індивідуальний підхід, інтерактивні дошки та власні методичні розробки для підготовки до НМТ. Кожне заняття базується на аналізі помилок учня та закріпленні матеріалу через реальні тести минулих років.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="courses" class="page">
+    <div class="container">
+        <h2>Доступні курси (Завантажено через AJAX)</h2>
+        <div class="filter-box">
+            <button onclick="loadCourses('all')">Всі</button>
+            <button onclick="loadCourses('school')">Школа</button>
+            <button onclick="loadCourses('exam')">Іспити</button>
+        </div>
+        <div id="coursesContainer" class="services-grid">
+            <p>Натисніть кнопку, щоб завантажити дані...</p>
+        </div>
+    </div>
+</section>
+
+<section id="registration" class="page">
+    <div class="container">
+        <h2>Запис на пробне заняття</h2>
+        <form id="orderForm" class="styled-form">
+            <div class="form-group">
+                <label for="userName">Ваше ім'я:</label>
+                <input type="text" name="userName" id="userName" placeholder="Тільки літери">
+                <span class="error-msg" id="nameError" style="display: block; font-size: 0.9rem; margin-top: 5px; color: red;"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="level">Ваш рівень знань:</label>
+                <select name="level" id="level">
+                    <option value="">-- Оберіть рівень --</option>
+                    <option value="Середня школа (5-9 кл)">Середня школа (5-9 кл)</option>
+                    <option value="Старша школа (10-11 кл)">Старша школа (10-11 кл)</option>
+                    <option value="Підготовка до НМТ">Підготовка до НМТ</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Формат занять:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="format" value="Онлайн" checked> Онлайн</label>
+                    <label><input type="radio" name="format" value="Офлайн"> Офлайн</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label><input type="checkbox" name="agreement" id="agreement"> Згоден на обробку даних</label>
+            </div>
+            
+            <button type="submit" id="submitBtn">Надіслати заявку</button>
+        </form>
+
+        <div id="resultBlock" style="display: none;" class="result-card">
+            <h3>Дякуємо за заявку!</h3>
+            <div id="resultContent"></div>
+            <button onclick="location.reload()" style="margin-top: 15px;">Надіслати ще раз</button>
+        </div>
+    </div>
+</section>
+
+<section id="admin-panel" class="page" style="background: #f4f7f6; padding: 40px 0; border-top: 2px solid #2c3e50;">
+    <div class="container">
+        <h2>Отримані заявки (LocalStorage)</h2>
+        <p style="margin-bottom: 20px; color: #666;">Тут відображаються ваші надіслані дані, які зберігаються в пам'яті браузера.</p>
+        
+        <div id="ordersList" class="services-grid">
+            <p>Заявок поки немає...</p>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center;">
+            <button onclick="clearOrders()" style="background: #e74c3c; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s;">
+                Очистити список заявок
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="contacts" class="page">
+    <div class="container">
+        <h2>Зв'яжіться зі мною</h2>
+        <div class="contact-box">
+            <p><strong>📍 Місто:</strong> Сколе</p>
+            <p><strong>📞 Телефон:</strong> +380957473546</p>
+            <p><strong>✉️ Email:</strong> mathwithyuliia65@gmail.com</p>
+            <p>Доступна для занять онлайн та офлайн.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 MathWithYuliia. Всі права застережено.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
